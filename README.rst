@@ -117,7 +117,7 @@ Example code::
         if not os.path.exists(FILENAME):
             log_error("File is gone: %s" % FILENAME)
 
-        modification_time = time.ctime(os.path.getmtime(FILENAME))
+        modification_time = os.path.getmtime(FILENAME)
 
         age = time.time() - modification_time
         if age > THRESHOLD * 60:
