@@ -94,8 +94,8 @@ Example code::
 
     FILENAME = "/var/log/serious-log-file.log"
 
-    #: One hour
-    THRESHOLD = 3600
+    #: Threshold time in seconds - one hour
+    THRESHOLD = 60*60
 
     # amonpy connects to the server via http/zeromg and application key secret
     amonpy.config.address = 'http://your.amonplus.server.com:2464'
@@ -120,7 +120,7 @@ Example code::
         modification_time = os.path.getmtime(FILENAME)
 
         age = time.time() - modification_time
-        if age > THRESHOLD * 60:
+        if age > THRESHOLD:
             log_error("File is not up-to-date: %s" % FILENAME)
 
 
